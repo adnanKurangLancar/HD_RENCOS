@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('/images/gojo.webp') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+.register-container {
+    position: relative;
+    background: rgba(0, 0, 0, 0.65); /* tidak terlalu blur */
+    backdrop-filter: blur(6px);
+    border-radius: 20px;
+    padding: 40px 35px;
+    width: 360px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(200, 0, 255, 0.4);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 0 15px #c400ff;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 10px 0;
+    border-radius: 10px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+.input-group i {
+    color: #bb86fc;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.input-group input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    width: 100%;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.input-group:focus-within {
+    background: rgba(187, 134, 252, 0.2);
+    box-shadow: 0 0 10px rgba(187, 134, 252, 0.6);
+    transform: scale(1.02);
+}
+
+.register-btn {
+    width: 100%;
+    background: linear-gradient(90deg, #ff00ff, #8000ff);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.register-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #ff00ff;
+}
+
+.login-text {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #ddd;
+}
+
+.login-text a {
+    color: #bb86fc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-text a:hover {
+    color: #ff00ff;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
