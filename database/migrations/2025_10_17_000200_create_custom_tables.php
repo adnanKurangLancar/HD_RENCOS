@@ -54,11 +54,10 @@ return new class extends Migration
 
         // 5. Carts
         Schema::create('carts', function (Blueprint $table) {
-            $table->id(); // => unsignedBigInteger
+            $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
-
 
         // 6. Cart Items
         Schema::create('cart_items', function (Blueprint $table) {
@@ -71,12 +70,11 @@ return new class extends Migration
             $table->timestamps();
         });
 
-
         // 7. Sewa
         Schema::create('sewa', function (Blueprint $table) {
             $table->id('sewa_id');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('costume_id')->constrained('costumes')->onDelete('cascade');
+            $table->foreignId('costume_id')->constrained('costumes', 'costume_id')->onDelete('cascade');
             $table->date('start_date');
             $table->date('end_date');
             $table->decimal('total_price', 10, 2);
@@ -89,7 +87,7 @@ return new class extends Migration
         Schema::create('beli', function (Blueprint $table) {
             $table->id('beli_id');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('accessory_id')->constrained('accessories')->onDelete('cascade');
+            $table->foreignId('accessory_id')->constrained('accessories', 'accessory_id')->onDelete('cascade');
             $table->integer('quantity')->default(1);
             $table->decimal('total_price', 10, 2);
             $table->enum('payment_method', ['quris'])->default('quris');
@@ -111,7 +109,7 @@ return new class extends Migration
         Schema::create('chats', function (Blueprint $table) {
             $table->id('chat_id');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('admin_id')->constrained('admins')->onDelete('cascade');
+            $table->foreignId('admin_id')->constrained('admins', 'admin_id')->onDelete('cascade');
             $table->text('message');
             $table->enum('sender_role', ['user', 'admin']);
             $table->timestamps();
